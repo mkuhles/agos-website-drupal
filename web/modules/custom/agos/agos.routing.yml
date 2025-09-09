@@ -1,0 +1,7 @@
+agos_api.dojos:
+  path: '/agosapi/dojos'
+  defaults:
+    _controller: '\Drupal\agos\Controller\AgosApiController::dojos'
+    _title: 'AGOS Dojos'
+  requirements:
+    _permission: 'access content'

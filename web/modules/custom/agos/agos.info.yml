@@ -1,0 +1,10 @@
+name: AGOS Module
+description: Provides an API for AGOS Dojos and creates taxonomy terms on dojo save.
+package: Custom
+type: module
+version: 1.0
+core_version_requirement: "^11"
+dependencies:
+  - drupal:taxonomy
+  - drupal:node
+  - drupal:field

@@ -1,0 +1,7 @@
+{
+    "intelephense.environment.phpVersion": "8.3",
+    "intelephense.environment.documentRoot": "web/",
+    "intelephense.format.braces": "k&r",
+    "phpsab.executablePathCBF": "vendor/bin/phpcbf",
+    "phpsab.executablePathCS": "vendor/bin/phpcs",
+}
