@@ -5,3 +5,11 @@ agos_api.dojos:
     _title: 'AGOS Dojos'
   requirements:
     _permission: 'access content'
+
+agos_api.site:    
+  path: '/agosapi/site'
+  defaults:
+    _controller: '\Drupal\agos\Controller\AgosApiController::site'
+    _title: 'AGOS Site Info'
+  requirements:
+    _permission: 'access content'

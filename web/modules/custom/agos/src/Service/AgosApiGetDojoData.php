@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Tests\file\Unit\SanitizeNameTest;
 
 class AgosApiGetDojoData implements AgosApiGetDojoDataInterface {
 
@@ -70,6 +71,7 @@ class AgosApiGetDojoData implements AgosApiGetDojoDataInterface {
         $styleImgUri = '';
       }
       $data[] = [
+        'id' => "dojo_" . $dojo->id(),
         'name' => $dojo->getTitle(),
         'location' => $dojo->field_location->value,
         'description' => $dojo->field_description->value,

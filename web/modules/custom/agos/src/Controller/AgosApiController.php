@@ -5,10 +5,11 @@
  */
 namespace Drupal\agos\Controller;
 
-use Drupal\agos_api\Service\AgosApiGetDojoData;
 use Symfony\Component\HttpFoundation\Response;
 
 class AgosApiController extends \Drupal\Core\Controller\ControllerBase {
+  
+  
   public function dojos() {
     $data = \Drupal::getContainer()
       ->get("agos.get_dojo_data")
@@ -17,12 +18,32 @@ class AgosApiController extends \Drupal\Core\Controller\ControllerBase {
     return new Response(
       json_encode($data, JSON_UNESCAPED_UNICODE),
       Response::HTTP_OK,
-      [
-        'Content-Type' => 'application/json',
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Allow-Methods' => 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers' => 'x-csrf-token, authorization, content-type, accept, origin, x-requested-with, access-control-allow-origin'
-      ],
+      $this->getResponseHeaders(),
     );
+  }
+
+  public function site() {
+    $data = \Drupal::getContainer()
+      ->get("agos.get_site_info")
+      ->getSiteInfo();
+
+    return new Response(
+      json_encode($data, JSON_UNESCAPED_UNICODE),
+      Response::HTTP_OK,
+      $this->getResponseHeaders(),
+    );
+  }
+
+  
+  /**
+   * Helper method to return response headers.
+   */
+  private function getResponseHeaders(): array {
+    return [
+      'Content-Type' => 'application/json',
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Methods' => 'GET',
+      // 'Access-Control-Allow-Headers' => 'x-csrf-token, authorization, content-type, accept, origin, x-requested-with, access-control-allow-origin'
+    ];
   }
 }

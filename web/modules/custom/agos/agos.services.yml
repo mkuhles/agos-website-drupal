@@ -2,3 +2,6 @@ services:
   agos.get_dojo_data:
     class: Drupal\agos\Service\AgosApiGetDojoData
     arguments: ['@entity_type.manager']
+  agos.get_site_info:
+    class: Drupal\agos\Service\AgosApiGetSiteInfo
+    arguments: ['@entity_type.manager']
