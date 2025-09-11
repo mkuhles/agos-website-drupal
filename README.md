@@ -18,11 +18,11 @@ Dieses Repository dient dazu, verschiedene Ansätze für Konzept, Design und tec
 Der erste Prototyp besteht aus einem React-Frontend, das Inhalte aus einer Drupal-Instanz bezieht.
 Damit ergibt sich folgende Aufteilung:
 
-- Frontend: Darstellung der Webseite mit React (Benutzeroberfläche, Navigation, Layout)
+- Frontend: Darstellung der Webseite mit React in einem seperaten Repository: [AGOS Website react](https://github.com/mkuhles/agos-website-react)
 
-- Backend: Verwaltung der Inhalte mit Drupal (Texte, Termine, Medien)
+- Backend: Verwaltung der Inhalte mit Drupal mittels eigens definierter content types
 
-- Schnittstelle: Anbindung über eine API (Headless CMS-Ansatz)
+- Schnittstelle ist die im modul [agos](web/modules/custom/agos/) definierte API 
 
 ## Ausblick
 
