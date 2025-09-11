@@ -1,6 +1,6 @@
 # AGOS Website
 
-Die Aikido Gemeinschaft Oder-Spree (AGOS) möchte eine moderne Vereinswebseite aufbauen.
+Die Aikido Gemeinschaft Oder-Spree e.V. (AGOS) möchte eine moderne Vereinswebseite aufbauen.
 Dieses Repository dient dazu, verschiedene Ansätze für Konzept, Design und technische Umsetzung auszuprobieren.
 
 ## Ziele
