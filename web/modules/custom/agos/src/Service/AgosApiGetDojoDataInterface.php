@@ -5,8 +5,6 @@
  */
 namespace Drupal\agos\Service;
 
-use Drupal\Core\Entity\EntityTypeManager;
-
 interface AgosApiGetDojoDataInterface {
 
   /**
