@@ -4,4 +4,6 @@ services:
     arguments: ['@entity_type.manager']
   agos.get_site_info:
     class: Drupal\agos\Service\AgosApiGetSiteInfo
-    arguments: ['@entity_type.manager']
+    arguments: 
+      - '@entity_type.manager'
+      - '@config.factory'

@@ -1,0 +1,6 @@
+agos.settings.link:
+  title: 'AGOS settings'
+  description: 'Configure the Site Info node.'
+  route_name: agos.settings
+  parent: system.admin_config_system
+  weight: 100

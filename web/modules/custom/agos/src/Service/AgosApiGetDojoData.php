@@ -1,19 +1,14 @@
 <?php
 /**
  * @file
- * Contains \Drupal\agos\Controller\AgosApiController.
+ * Contains \Drupal\agos\Service\AgosApiGetDojoData.
  */
 namespace Drupal\agos\Service;
 
-use Drupal\ckeditor5\Plugin\CKEditor5Plugin\Media;
-use Drupal\Component\Utility\Image;
-use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\Tests\file\Unit\SanitizeNameTest;
 
-class AgosApiGetDojoData implements AgosApiGetDojoDataInterface {
+class AgosApiGetDojoData extends AbstractAgosApiGetData implements AgosApiGetDojoDataInterface {
 
   /**
    * The file storage handler.
@@ -28,12 +23,6 @@ class AgosApiGetDojoData implements AgosApiGetDojoDataInterface {
    * @var \Drupal\Core\Entity\EntityStorageInterface
    */
   protected $nodeStorage;
-
-  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
-    $entityTypeManager = $entityTypeManager;
-    $this->fileStorage = $entityTypeManager->getStorage('file');
-    $this->nodeStorage = $entityTypeManager->getStorage('node');
-  }
 
   /**
    * Fetches dojo data.
@@ -60,16 +49,8 @@ class AgosApiGetDojoData implements AgosApiGetDojoDataInterface {
         continue;
       }
       
-      /** @var \Drupal\file\FileInterface $image */
-      $image = $this->fileStorage->load($dojo->field_image->target_id);
+      $styleImgUri = $this->getImageStyleUrl($dojo->field_image->target_id, 'dojologo');
       
-      if ($image) {
-        $imageUri = $image->getFileUri();
-        $styleImgUri = ImageStyle::load('dojologo')->buildUrl($imageUri);
-      }
-      else {
-        $styleImgUri = '';
-      }
       $data[] = [
         'id' => "dojo_" . $dojo->id(),
         'name' => $dojo->getTitle(),

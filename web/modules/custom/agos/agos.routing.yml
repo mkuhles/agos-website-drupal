@@ -13,3 +13,11 @@ agos_api.site:
     _title: 'AGOS Site Info'
   requirements:
     _permission: 'access content'
+
+agos.settings:
+  path: '/admin/config/system/agos'
+  defaults:
+    _form: '\Drupal\agos\Form\AgosSettingsForm'
+    _title: 'AGOS settings'
+  requirements:
+    _permission: 'administer site configuration'
